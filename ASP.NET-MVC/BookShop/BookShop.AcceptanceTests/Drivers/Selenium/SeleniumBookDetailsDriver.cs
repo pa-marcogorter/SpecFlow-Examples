@@ -50,6 +50,8 @@ namespace BookShop.AcceptanceTests.Drivers.Selenium
 
             if (expectedBook.Price != null)
             {
+
+                CultureInfo.CurrentUICulture = new CultureInfo("nl-NL", false);                    // Added to set locale to nl-NL
                 var actualPrice = decimal.Parse(bookDetailPageObject.Price[2..], CultureInfo.CurrentUICulture);
                 var expectedPrice = Convert.ToDecimal(expectedBook.Price);
                 actualPrice.Should().Be(expectedPrice);

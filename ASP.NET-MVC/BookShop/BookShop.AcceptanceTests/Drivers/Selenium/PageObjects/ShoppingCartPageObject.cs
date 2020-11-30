@@ -12,6 +12,7 @@ namespace BookShop.AcceptanceTests.Drivers.Selenium.PageObjects
         public ShoppingCartPageObject(IWebDriver webDriver)
         {
             _webDriver = webDriver;
+            CultureInfo.CurrentUICulture = new CultureInfo("nl-NL", false);                        // Added to set locale to nl-NL
         }
 
         public int ShoppingCartCount => int.Parse(_webDriver.FindElement(By.ClassName("shoppingcart_count")).Text);
